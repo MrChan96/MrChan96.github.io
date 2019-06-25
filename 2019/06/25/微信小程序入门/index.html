@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="SiHao" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="[toc] 开发工具介绍小程序基础WXML、WXSS、JS介绍 全局配置微信公众号开发平台/全局配置路径：指南–&amp;gt;配置小程序–&amp;gt;全局配置https://www.imooc.com/video/19367 WXMLWXML是小程序框架设计的一套标签语言，可以==构建出页面的结构==，充当类似HTML角色。 小程序常用组件微信小程序常用组件 简单的数据绑定WXML中的动态数据均来自对应的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微信小程序入门">
+<meta property="og:url" content="http://yoursite.com/2019/06/25/微信小程序入门/index.html">
+<meta property="og:site_name" content="SiHao">
+<meta property="og:description" content="[toc] 开发工具介绍小程序基础WXML、WXSS、JS介绍 全局配置微信公众号开发平台/全局配置路径：指南–&amp;gt;配置小程序–&amp;gt;全局配置https://www.imooc.com/video/19367 WXMLWXML是小程序框架设计的一套标签语言，可以==构建出页面的结构==，充当类似HTML角色。 小程序常用组件微信小程序常用组件 简单的数据绑定WXML中的动态数据均来自对应的">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/06/25/微信小程序入门/A45A437F39D54CBDB621F1A2422C8C36">
+<meta property="og:image" content="http://yoursite.com/2019/06/25/微信小程序入门/498A312C12614C13ADEA4DECC4F4D8D8">
+<meta property="og:updated_time" content="2019-06-25T02:07:15.257Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="微信小程序入门">
+<meta name="twitter:description" content="[toc] 开发工具介绍小程序基础WXML、WXSS、JS介绍 全局配置微信公众号开发平台/全局配置路径：指南–&amp;gt;配置小程序–&amp;gt;全局配置https://www.imooc.com/video/19367 WXMLWXML是小程序框架设计的一套标签语言，可以==构建出页面的结构==，充当类似HTML角色。 小程序常用组件微信小程序常用组件 简单的数据绑定WXML中的动态数据均来自对应的">
+<meta name="twitter:image" content="http://yoursite.com/2019/06/25/微信小程序入门/A45A437F39D54CBDB621F1A2422C8C36">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/06/25/微信小程序入门/">
+
+
+
+
+
+  <title>微信小程序入门 | SiHao</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">SiHao</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Stay Hungry, Stay Foolish</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+
+
+<script>
+	
+	window.onload = function(){
+		var path = 'https://malizhi.cn'; //这里要改成你博客的地址
+		var localhostItem = String(window.location).split(path)[1];
+		var LiNode = document.querySelectorAll('#menu > li > a')
+		
+		for(var i = 0; i< LiNode.length;i++){
+			var item = String(LiNode[i].href).split(path)[1];
+			if(item == localhostItem && item != undefined){
+				LiNode[i].setAttribute('style','border-bottom:1px solid black');
+			}
+		}
+	};
+
+</script>
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/25/微信小程序入门/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="SiHao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SiHao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">微信小程序入门</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-25T00:10:36+08:00">
+                2019-06-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <!-- ttoc -->
+<p>[toc]</p>
+<h1 id="开发工具介绍"><a href="#开发工具介绍" class="headerlink" title="开发工具介绍"></a>开发工具介绍</h1><h1 id="小程序基础WXML、WXSS、JS介绍"><a href="#小程序基础WXML、WXSS、JS介绍" class="headerlink" title="小程序基础WXML、WXSS、JS介绍"></a>小程序基础WXML、WXSS、JS介绍</h1><p><img src="A45A437F39D54CBDB621F1A2422C8C36" alt="image"><br><img src="498A312C12614C13ADEA4DECC4F4D8D8" alt="image"></p>
+<h2 id="全局配置"><a href="#全局配置" class="headerlink" title="全局配置"></a>全局配置</h2><p><a href="https://developers.weixin.qq.com/miniprogram/dev/framework/config.html#%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE" target="_blank" rel="noopener">微信公众号开发平台/全局配置</a><br><strong>路径：指南–&gt;配置小程序–&gt;全局配置</strong><br><a href="https://www.imooc.com/video/19367" target="_blank" rel="noopener">https://www.imooc.com/video/19367</a></p>
+<h2 id="WXML"><a href="#WXML" class="headerlink" title="WXML"></a>WXML</h2><p>WXML是小程序框架设计的一套标签语言，可以==构建出页面的结构==，充当类似HTML角色。</p>
+<h3 id="小程序常用组件"><a href="#小程序常用组件" class="headerlink" title="小程序常用组件"></a>小程序常用组件</h3><p><a href="https://developers.weixin.qq.com/miniprogram/dev/component/" target="_blank" rel="noopener">微信小程序常用组件</a></p>
+<h3 id="简单的数据绑定"><a href="#简单的数据绑定" class="headerlink" title="简单的数据绑定"></a>简单的数据绑定</h3><p>WXML中的动态数据均来自对应的Page的data。<br>数据绑定通常使用Mustache语法（双大括号）将变量包起来。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// pages/base/base.js</span></span><br><span class="line">Page(&#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 页面的初始数据</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  data: &#123;</span><br><span class="line">    msg:<span class="string">'Hello World'</span>,</span><br><span class="line">    img:<span class="string">'/images/pig.jpg'</span>,</span><br><span class="line">    arr:[<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>],  <span class="comment">// 数组</span></span><br><span class="line">    list:[  <span class="comment">// 数组</span></span><br><span class="line">        &#123;</span><br><span class="line">            name:<span class="string">'jack'</span>,</span><br><span class="line">            age:<span class="number">18</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            name:<span class="string">'lili'</span>,</span><br><span class="line">            age:<span class="number">19</span></span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    islogin:<span class="literal">true</span> <span class="comment">// 判断用户是否登陆</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--pages/base/base.wxml--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">text</span>&gt;</span>&#123;&#123;msg&#125;&#125;<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">image</span> <span class="attr">src</span>=<span class="string">"&#123;&#123;img&#125;&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">image</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">wx:for</span>=<span class="string">"&#123;&#123;arr&#125;&#125;"</span> <span class="attr">wx:key</span>=<span class="string">"&#123;&#123;index&#125;&#125;"</span>&gt;</span>&#123;&#123;index&#125;&#125; &#123;&#123;item&#125;&#125;<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">wx:for</span>=<span class="string">"&#123;&#123;list&#125;&#125;"</span> <span class="attr">wx:key</span>=<span class="string">"&#123;&#123;index&#125;&#125;"</span>&gt;</span>&#123;&#123;item.name&#125;&#125; &#123;&#123;item.age&#125;&#125;<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">wx:if</span>=<span class="string">"&#123;&#123;isLogin&#125;&#125;"</span>&gt;</span>jerry<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">wx:else</span>&gt;</span>请登陆<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">hidden</span>=<span class="string">"&#123;&#123;!sLogin&#125;&#125;"</span>&gt;</span>隐藏文字<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>知识点：</p>
+<blockquote>
+<p>一、使用wx:for遍历出来的数组，使用表示数组的索引，表示数组的值。<br>二、在使用在使用wx:for的时候，还需要定义wx:key唯一指令<br>三、使用wx:if=”“来判断是否需要渲染该代码块，也可以用wx:elseif和wx:else来添加一个else块<br>四、hideen：隐藏</p>
+</blockquote>
+<h2 id="WXSS"><a href="#WXSS" class="headerlink" title="WXSS"></a>WXSS</h2><p>一、类似我们的CSS，是小程序的样式语言。<br>二、尺寸单位：rpx，根据屏幕宽度进行自适应，适配不同宽度的屏幕。rpx相当于屏幕的一个比例。<br>三、引入外部的wxss文件：@import  ‘./test_0.wxss’<br>四、尺寸单位：<a href="https://developers.weixin.qq.com/miniprogram/dev/framework/view/wxss.html" target="_blank" rel="noopener">尺寸单位</a><br>五、第三方样式库<br>WeUI：<br>iView Weapp：<br>Vant Weapp：</p>
+<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><p>示例：点击按钮，count值进行自增。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">data: &#123;</span><br><span class="line">    count:<span class="number">0</span></span><br><span class="line">  &#125;,</span><br><span class="line">  onTapHandler:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 1.取count的值</span></span><br><span class="line">     <span class="comment">//this.data.count;</span></span><br><span class="line">    <span class="comment">// 2.赋回给count属性</span></span><br><span class="line">    <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">      count:<span class="keyword">this</span>.data.count + <span class="number">1</span></span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">size</span>=<span class="string">'mini'</span> <span class="attr">bindtap</span>=<span class="string">'onTapHandler'</span>&gt;</span>点我加一<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span>&gt;</span>&#123;&#123;count&#125;&#125;<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>区别bind:tap与catch:tap事件：bind:tap会导致‘事件冒泡’</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">onTapBoxHandler:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;,</span><br><span class="line">onTapChildHandler:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--父--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">bindtap</span>=<span class="string">'onTapBoxHandler'</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--子--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span> <span class="attr">bindtap</span>=<span class="string">'onTapChildHandler'</span>&gt;</span><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="小程序云开发"><a href="#小程序云开发" class="headerlink" title="小程序云开发"></a>小程序云开发</h1><h2 id="增删改查"><a href="#增删改查" class="headerlink" title="增删改查"></a>增删改查</h2><h3 id="新增"><a href="#新增" class="headerlink" title="新增"></a>新增</h3><h3 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h3><h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><h3 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h3><h2 id="云函数"><a href="#云函数" class="headerlink" title="云函数"></a>云函数</h2><p>需要安装node.js v8.0+环境。<br>一、查看node环境是否已安装。</p>
+<blockquote>
+<p>node -v</p>
+</blockquote>
+<p>二、在云开发的目录结构中有个cloudfunctions|wechatcloud根目录指的就是云函数的根文件夹。</p>
+<h3 id="新建一个求和云函数sum"><a href="#新建一个求和云函数sum" class="headerlink" title="新建一个求和云函数sum()"></a>新建一个求和云函数sum()</h3><p>一、直接在cloudfunctions|wechatcloud根目录下创建，便自动上传到云函数中。<br>二、在每一次编辑（修改）好云函数，需要上传到云函数上。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span>&gt;</span>云函数<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">bindtap</span>=<span class="string">"sum"</span>&gt;</span>调用云函数sum<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">sum:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">   wx.cloud.callFunction(&#123;   <span class="comment">// 调用云函数</span></span><br><span class="line">     name:<span class="string">'sum'</span>,</span><br><span class="line">     data:&#123;</span><br><span class="line">       a:<span class="number">2</span>,</span><br><span class="line">       b:<span class="number">3</span></span><br><span class="line">     &#125;</span><br><span class="line">   &#125;).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(res);</span><br><span class="line">   &#125;).catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(err);</span><br><span class="line">   &#125;); </span><br><span class="line"> &#125;,</span><br></pre></td></tr></table></figure>
+
+<h3 id="获取当前用户的openid"><a href="#获取当前用户的openid" class="headerlink" title="获取当前用户的openid"></a>获取当前用户的openid</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">bindtap</span>=<span class="string">"getOpenId"</span>&gt;</span>获取用户当前的openid<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">getOpenId:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  wx.cloud.callFunction(&#123;</span><br><span class="line">    name:<span class="string">'login'</span></span><br><span class="line">  &#125;).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res);</span><br><span class="line">  &#125;).catch(<span class="function"><span class="params">err</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(err);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="批量删除云数据库的数据"><a href="#批量删除云数据库的数据" class="headerlink" title="批量删除云数据库的数据"></a>批量删除云数据库的数据</h3><p>第一步：编写我们的云函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在index.js中获取云数据库</span></span><br><span class="line"><span class="keyword">const</span> db = cloud.database();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 云函数入口函数</span></span><br><span class="line">exports.main = <span class="keyword">async</span> (event, context) =&gt; &#123;</span><br><span class="line">  <span class="keyword">try</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">await</span> db.collection(<span class="string">'user'</span>).where(&#123;</span><br><span class="line">    name:<span class="string">'jerry'</span>  <span class="comment">// 根据条件查询出name=jerry</span></span><br><span class="line">  &#125;).remove();</span><br><span class="line">  &#125;<span class="keyword">catch</span>(e)&#123;</span><br><span class="line">    <span class="built_in">console</span>.error(e); </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>第二步：编写完毕，进行上传</p>
+<p>第三步：编写前端</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">bindtap</span>=<span class="string">"batchDelete"</span>&gt;</span>批量删除数据<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>第四步：编写我们的事件处理</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">batchDelete:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  wx.cloud.callFunction(&#123;  <span class="comment">// 调用我们的云函数</span></span><br><span class="line">    name:<span class="string">'batchDelete'</span>   <span class="comment">// 云函数名称</span></span><br><span class="line">  &#125;).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res);</span><br><span class="line">  &#125;).catch(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.error(err);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/25/hello-world/" rel="prev" title="Hello World">
+                Hello World <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">SiHao</p>
+              <p class="site-description motion-element" itemprop="description">Record everything</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/MrChan96" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:904397420@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.zhouinfo.site/" title="周" target="_blank">周</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#开发工具介绍"><span class="nav-number">1.</span> <span class="nav-text">开发工具介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#小程序基础WXML、WXSS、JS介绍"><span class="nav-number">2.</span> <span class="nav-text">小程序基础WXML、WXSS、JS介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#全局配置"><span class="nav-number">2.1.</span> <span class="nav-text">全局配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WXML"><span class="nav-number">2.2.</span> <span class="nav-text">WXML</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#小程序常用组件"><span class="nav-number">2.2.1.</span> <span class="nav-text">小程序常用组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简单的数据绑定"><span class="nav-number">2.2.2.</span> <span class="nav-text">简单的数据绑定</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WXSS"><span class="nav-number">2.3.</span> <span class="nav-text">WXSS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript"><span class="nav-number">2.4.</span> <span class="nav-text">JavaScript</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#小程序云开发"><span class="nav-number">3.</span> <span class="nav-text">小程序云开发</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#增删改查"><span class="nav-number">3.1.</span> <span class="nav-text">增删改查</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#新增"><span class="nav-number">3.1.1.</span> <span class="nav-text">新增</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改"><span class="nav-number">3.1.2.</span> <span class="nav-text">修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除"><span class="nav-number">3.1.3.</span> <span class="nav-text">删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询"><span class="nav-number">3.1.4.</span> <span class="nav-text">查询</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#云函数"><span class="nav-number">3.2.</span> <span class="nav-text">云函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#新建一个求和云函数sum"><span class="nav-number">3.2.1.</span> <span class="nav-text">新建一个求和云函数sum()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取当前用户的openid"><span class="nav-number">3.2.2.</span> <span class="nav-text">获取当前用户的openid</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#批量删除云数据库的数据"><span class="nav-number">3.2.3.</span> <span class="nav-text">批量删除云数据库的数据</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SiHao</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+<!-- 新增访客统计代码 -->
+
+<div class="busuanzi-count">
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      访问用户： <span class="busuanzi-value" id="busuanzi_value_site_uv"></span> 人
+    </span>
+    <div class="powered-by"></div>
+    <span class="site-uv">
+      <i class="fa fa-eye"></i>
+      访问次数： <span class="busuanzi-value" id="busuanzi_value_site_pv"></span> 次
+    </span>
+    <!-- 博客字数统计 -->
+    <span class="site-pv">
+      <i class="fa fa-pencil"></i>
+      博客全站共： <span class="post-count"></span> 字
+    </span>
+</div>
+<!-- 新增访客统计代码 END-->
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>SiHao</title>
+  
+  <subtitle>Stay Hungry, Stay Foolish</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2019-06-24T17:46:06.962Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>SiHao</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2019/06/25/hello-world/"/>
+    <id>http://yoursite.com/2019/06/25/hello-world/</id>
+    <published>2019-06-24T17:46:06.962Z</published>
+    <updated>2019-06-24T17:46:06.962Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>微信小程序入门</title>
+    <link href="http://yoursite.com/2019/06/25/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%85%A5%E9%97%A8/"/>
+    <id>http://yoursite.com/2019/06/25/微信小程序入门/</id>
+    <published>2019-06-24T16:10:36.000Z</published>
+    <updated>2019-06-25T02:07:15.257Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;!-- ttoc --&gt;
+&lt;p&gt;[toc]&lt;/p&gt;
+&lt;h1 id=&quot;开发工具介绍&quot;&gt;&lt;a href=&quot;#开发工具介绍&quot; class=&quot;headerlink&quot; title=&quot;开发工具介绍&quot;&gt;&lt;/a&gt;开发工具介绍&lt;/h1&gt;&lt;h1
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
